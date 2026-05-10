@@ -1,0 +1,20 @@
+<div class='note-content'>
+  <div class='note-header'>
+     <input type="checkbox" id="note-checkbox-{{note.id}}"
+      {% if note.completed %} checked {% endif %}>
+      
+    <label for="note-checkbox-{{note.id}}">
+      <span><strong>{{note.title}}</strong></span>
+      <span>Дедлайн: {{note.deadline}}</span>
+      <span><small>Дата создания: {{note.date_of_creation}}</small></span>
+    </label> 
+
+  </div>
+  <details id='description' class='note-details'>
+    <summary>Показать описание</summary>
+      <div class="description-text">
+        {{note.description}} 
+      </div>
+  </details>
+</div>
+

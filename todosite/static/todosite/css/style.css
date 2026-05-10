@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: solid;
+  min-height: 100vh;
+}
+.main-content {
+  border-left: solid;
+  flex-grow: 3;
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 2px solid;
+}
+
+.sidebar {
+  flex-grow: 1;
+}
+.content details {
+  flex-basic: 100%;
+  width: 100%;
+}
+
+.note-content {
+  display: flex;
+  flex-direction: column; /* Заметка растет вниз, а не вбок */
+  border-bottom: 2px solid; padding: 10px;
+}
+
+.note-header {
+  display: flex;
+  align-items: center; /* Центрируем чекбокс и текст по вертикали */
+  gap: 15px;           /* Фиксированный отступ между чекбоксом и текстом */
+}
+
+label {
+  display: flex;
+  flex-grow: 1;        /* Лейбл занимает всё свободное место */
+  justify-content: space-between; /* Название слева, даты справа */
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Чтобы описание всегда было под заголовком и на всю ширину */
+.note-details {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.description-text {
+  padding: 10px;
+  background: rgba(0,0,0,0.05); 
+  margin-top: 5px;
+}

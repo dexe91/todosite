@@ -1,0 +1,15 @@
+{% extends "todosite/base.html" %}
+{% block content %}
+
+  <div class='content'>
+    <h2>Заметки</h2> 
+    <a href={{create}}>Создать заметку</a>
+  </div>
+
+  <div id='notes'>
+    {% for note in notes %}
+      {% include "todosite/includes/note_card.html" %}
+    {% endfor %}
+  </div>
+{% endblock %}
+
