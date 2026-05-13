@@ -3,11 +3,17 @@
 
   <div class='content'>
     <h2>Заметки</h2> 
-    <a href={{create}}>Создать заметку</a>
+    <a href="{% url 'create_note' %}">Создать заметку</a>
   </div>
 
   <div id='notes'>
     {% for note in notes %}
+       {% ifchanged note.deadline.date  %}
+         <div>
+           --{{note.deadline|date:"d.m.Y"}}
+           {% if note.deadline.date == today %} (Сегодня){% endif %}
+         </div>
+       {% endifchanged %}
       {% include "todosite/includes/note_card.html" %}
     {% endfor %}
   </div>

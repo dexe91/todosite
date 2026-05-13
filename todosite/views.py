@@ -9,3 +9,7 @@ def index(request):
     context = {"notes": notes, "today": timezone.now().date()}
 
     return render(request, "todosite/index.html", context=context)
+
+
+def create(request):
+    return render(request, "todosite/create_note.html")
