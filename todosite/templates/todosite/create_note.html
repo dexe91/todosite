@@ -2,6 +2,18 @@
 {% block content %}
   <div class='content'>
     <h2>Создание заметки</h2>
-  <a href="{% url 'index' %}">Перейти к заметкам</a>
+    <a href="{% url 'index' %}">Перейти к заметкам</a>
   </div>
+  <div>
+    <form action="/submit" method='post'>
+      <label for="title">Название заметки</label>
+      <input type="text" name="title" value="" required>
+      <label for="description">Описание заметки</label>
+      <input type="text" name="description" value="">
+      <label for="deadline">Дедлайн</label>
+      <input type="datetime-local" name="deadline" value="">
+      <button type="submit">Создать</button>
+    </form>
+  </div>
+
 {% endblock %}
