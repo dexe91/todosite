@@ -9,9 +9,12 @@
   <div id='notes'>
     {% for note in notes %}
        {% ifchanged note.deadline.date  %}
-         <div>
-           --{{note.deadline|date:"d.m.Y"}}
-           {% if note.deadline.date == today %} (Сегодня){% endif %}
+         <div style='border-top: 2px solid; border-bottom: 4px solid;'>
+           {% if note.deadline.date == today %} 
+           <h2 class='note_content'>{{note.deadline|date:"d.m.Y"}} (Сегодня)</h2>
+           {% else %}
+           <h2 class='note_content'>{{note.deadline|date:"d.m.Y"}}</h2>
+           {% endif %}
          </div>
        {% endifchanged %}
       {% include "todosite/includes/note_card.html" %}
