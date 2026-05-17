@@ -1,13 +1,24 @@
 <div class='note-content'>
   <div class='note-header'>
-     <input type="checkbox" id="note-checkbox-{{note.id}}"
-      {% if note.completed %} checked {% endif %}>
+    <form action="{% url 'toggle_note' note.id %}" method="post">
+      {% csrf_token %}
+      <input 
+        type="checkbox" 
+        id="note-checkbox-{{note.id}}"
+        name="completed"
+        {% if note.completed %} checked {% endif %}
+        onchange="this.form.submit()">
+
+    </form>
       
     <label for="note-checkbox-{{note.id}}">
       <span><strong>{{note.title}}</strong></span>
       <span>Дедлайн: {{note.deadline}}</span>
       <span><small>Дата создания: {{note.date_of_creation}}</small></span>
     </label> 
+    <div>
+    
+    </div>
 
   </div>
   <details id='description' class='note-details'>
