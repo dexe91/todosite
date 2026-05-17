@@ -1,2 +1,13 @@
 {% extends "todosite/base.html" %}
+{% block content  %}
+  <div>
+    <form>
+      <label for="submit_button">Вы точно хотите удалить заметку?</label>
+      <div style="display: flex;">
+        <button type="exit_button">Нет</button>
+        <button type="submit_button">Удалить</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}
 

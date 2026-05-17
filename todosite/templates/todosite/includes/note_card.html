@@ -8,17 +8,17 @@
         name="completed"
         {% if note.completed %} checked {% endif %}
         onchange="this.form.submit()">
-
     </form>
-      
+
     <label for="note-checkbox-{{note.id}}">
       <span><strong>{{note.title}}</strong></span>
       <span>Дедлайн: {{note.deadline}}</span>
       <span><small>Дата создания: {{note.date_of_creation}}</small></span>
+      <div style="display: flex; gap: 10px;">
+        <a href="{% url 'edit_note' note.id%}">✏️</a>
+        <a href="{% url 'delete_note' note.id%}">🗑️</a>
+      </div>
     </label> 
-    <div>
-    
-    </div>
 
   </div>
   <details id='description' class='note-details'>

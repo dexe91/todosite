@@ -32,3 +32,11 @@ def toggle_note(request, note_id):
         note.completed = not note.completed
         note.save()
     return redirect(index)
+
+
+def edit_note(request, note_id):
+    pass
+
+
+def delete_note(request, note_id):
+    pass
