@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import Note
 from django.utils import timezone
+from datetime import datetime
 # Create your views here.
 
 
@@ -35,7 +36,25 @@ def toggle_note(request, note_id):
 
 
 def edit_note(request, note_id):
-    pass
+    note = get_object_or_404(Note, id=note_id)
+    context = {"note": note}
+    if request.method == "POST":
+        new_title = request.POST.get("title")
+        new_desciption = request.POST.get("description")
+        new_deadline = request.POST.get("deadline")
+
+        if new_title:
+            note.title = new_title
+        if new_desciption:
+            note.description = new_desciption
+        if new_deadline:
+            try:
+                note.deadline = datetime.strptime(new_deadline, "%Y-%m-%dT%H:%M")
+            except ValueError:
+                pass
+        note.save()
+        return redirect("index")
+    return render(request, "todosite/edit_note.html", context)
 
 
 def delete_note(request, note_id):

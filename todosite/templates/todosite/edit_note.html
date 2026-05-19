@@ -1,0 +1,25 @@
+{% extends "todosite/base.html" %}
+{% block content  %}
+  <div>
+  <div class='content'>
+    <h2>Редактирование заметки</h2>
+    <a href="{% url 'index' %}">Перейти к заметкам</a>
+  </div>
+  <div style="margin: 1em;">
+    <form method='post'>
+      {% csrf_token %}
+      <label for="title">Название заметки</label>
+      <input type="text" name="title" value="{{ note.title }}" required>
+
+      <label for="description">Описание заметки</label>
+      <textarea name="description" rows="5" >{{ note.description}}</textarea> 
+
+      <label for="deadline">Дата дедлайна</label>
+      <input type="datetime-local" name="deadline" value="{{ note.deadline|date:'Y-m-d\TH:i' }}">
+
+      <button type="submit">Сохранить</button>
+    </form>
+  </div>
+  </div>
+{% endblock %}
+
