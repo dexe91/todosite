@@ -39,4 +39,9 @@ def edit_note(request, note_id):
 
 
 def delete_note(request, note_id):
-    pass
+    if request.method == "POST":
+        note = get_object_or_404(Note, id=note_id)
+
+        note.delete()
+        return redirect(index)
+    return render(request, "todosite/confirm_delete.html")
